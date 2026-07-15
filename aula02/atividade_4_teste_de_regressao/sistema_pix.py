@@ -4,7 +4,7 @@ def transferir_pix_v2(saldo_conta, valor_transferencia, limite_diario):
         return "Erro: Limite diário excedido"
         
     # REGRAS ANTIGAS: O desenvolvedor mexeu aqui sem querer!
-    if valor_transferencia < 0: # <-- Atenção aqui!
+    if valor_transferencia <= 0:
         return "Erro: Valor inválido"
     
     if valor_transferencia > saldo_conta:
