@@ -38,7 +38,6 @@ O repositório está estruturado em **4 missões sequenciais**. Vocês devem nav
 2.  **Instalação:** Certifique-se de ter o Python instalado na sua máquina (as atividades usam sintaxe simples de Python para que todos consigam ler e rodar sem dificuldades).
 3.  **Execução:** Navegue pelas pastas (`atividade_1` até `atividade_4`), abra o arquivo `README.md` de cada uma delas para ler as instruções detalhadas e execute os arquivos `.py` correspondentes.
 4.  **Resolução:** Altere o código, faça os testes passarem e salve os arquivos.
-5.  **Gabarito:** Travou ou terminou? Cada atividade possui uma pasta `/gabarito` com a resposta teórica e o código corrigido para você validar a sua linha de raciocínio.
 
 > 💡 **Dica de Ouro:** Tente explicar em voz alta o que você está fazendo para um colega ou para você mesmo (Técnica de Feynman). Explicar a lógica de testes de forma simples é o melhor caminho para consolidar esse conhecimento!
 
