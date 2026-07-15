@@ -19,5 +19,8 @@ def transferir_pix(saldo_conta, valor_transferencia):
 print("Teste Caminho 1:", transferir_pix(saldo_conta=100, valor_transferencia=0))
 
 # Escreva os seus próximos testes aqui:
-# print(...)
-# print(...)
+# Forçando o Caminho 2 (Saldo insuficiente)
+print("Teste Caminho 2:", transferir_pix(saldo_conta=50, valor_transferencia=200))
+
+# Forçando o Caminho 3 (Sucesso)
+print("Teste Caminho 3:", transferir_pix(saldo_conta=500, valor_transferencia=100))
