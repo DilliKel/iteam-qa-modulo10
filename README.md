@@ -10,6 +10,7 @@ Professor: Bruno Ramalho dos Santos
 - [`slides/Modelo de Apostila - 2026 - ITEAM.docx.pdf`](<slides/Modelo de Apostila - 2026 - ITEAM.docx.pdf>) — apostila completa do módulo, dividida em 5 capítulos.
 - [`aula01/`](aula01/) — código e exercícios da Aula 01.
 - [`aula02/`](aula02/) — atividades práticas e exercícios da Aula 02.
+- [`aula03/`](aula03/) — atividades práticas e exercícios da Aula 03.
 
 ## Estrutura da apostila
 
@@ -55,3 +56,31 @@ python aula02/atividade_2_codigo_morto/login.py
 python aula02/atividade_3_caixa_preta_branca/pix.py
 python aula02/atividade_4_teste_de_regressao/sistema_pix.py
 ```
+
+## Aula 03 — Laboratório Prático: Testes de Unidade e Integração (pytest)
+
+Pasta: [`aula03/`](aula03/) — veja o [README da aula](aula03/README.md) para o enunciado completo das 5 missões.
+
+Pré-requisito: `python -m pip install pytest` (rode sempre com `python -m pytest`, não só `pytest`, pois o executável pode não estar no PATH).
+
+- [`atividade_1_primeiros_testes/`](aula03/atividade_1_primeiros_testes/) — suíte de testes de Caixa Branca cobrindo os 4 caminhos lógicos de uma calculadora de desconto.
+- [`atividade_2_analisando_falhas/`](aula03/atividade_2_analisando_falhas/) — leitura de relatórios de falha do pytest (exercício sem código residual).
+- [`atividade_3_mock_e_stub/`](aula03/atividade_3_mock_e_stub/) — Stub para isolar uma dependência externa lenta (API simulada).
+- [`atividade_4_mocks_inteligentes/`](aula03/atividade_4_mocks_inteligentes/) — Mock para validar comportamento (envio de e-mail de confirmação).
+- [`atividade_5_desafio_boss_excecoes/`](aula03/atividade_5_desafio_boss_excecoes/) — múltiplos Mocks e simulação de exceção (`side_effect`) para testar um plano de contingência.
+- [`leitura-complementar.md`](aula03/leitura-complementar.md) — anotações de um artigo complementar sobre qualidade de software e fundamentos de teste na profissão de QA.
+- [`exercicios-fixacao-dia3.md`](aula03/exercicios-fixacao-dia3.md) — respostas dos exercícios de fixação do Capítulo 3, Dia 3.
+
+Como executar cada atividade:
+
+```bash
+cd aula03/atividade_1_primeiros_testes && python -m pytest -v
+cd aula03/atividade_3_mock_e_stub && python -m pytest -v
+cd aula03/atividade_4_mocks_inteligentes && python -m pytest -v
+cd aula03/atividade_5_desafio_boss_excecoes && python -m pytest -v
+```
+
+## Autor
+
+**Kelvin Araújo Ferreira**
+[linkedin.com/in/dillikel](https://linkedin.com/in/dillikel)
