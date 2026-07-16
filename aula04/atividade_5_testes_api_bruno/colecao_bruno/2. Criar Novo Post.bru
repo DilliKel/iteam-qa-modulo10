@@ -1,0 +1,24 @@
+meta {
+  name: 2. Criar Novo Post
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://jsonplaceholder.typicode.com/posts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Aula de Testes de API",
+    "body": "Aprendendo a usar o Bruno para testes de integracao de API real.",
+    "userId": 10
+  }
+}
+
+assert {
+  res.status: eq 201
+  res.body.title: eq Aula de Testes de API
+}

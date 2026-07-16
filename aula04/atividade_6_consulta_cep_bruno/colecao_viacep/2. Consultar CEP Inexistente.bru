@@ -1,0 +1,16 @@
+meta {
+  name: 2. Consultar CEP Inexistente
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://viacep.com.br/ws/99999999/json/
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.erro: eq true
+}

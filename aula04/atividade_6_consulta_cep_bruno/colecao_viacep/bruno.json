@@ -1,0 +1,9 @@
+{
+  "name": "Testes_ViaCEP",
+  "version": "1",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
