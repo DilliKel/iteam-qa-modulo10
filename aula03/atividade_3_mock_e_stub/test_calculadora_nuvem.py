@@ -8,5 +8,20 @@ def test_desconto_sem_mock():
     resultado = calcular_desconto_por_cpf(100, "12345678900")
     assert resultado == 20.0
 
-# ✅ Desafio: Escreva o teste usando Mocks/Stubs abaixo!
-# Use o @patch('calculadora_nuvem.consultar_tipo_cliente_na_api')
+# ✅ Teste usando Stub: substitui a chamada real por uma resposta estática e instantânea
+@patch('calculadora_nuvem.consultar_tipo_cliente_na_api')
+def test_desconto_com_stub_cliente_vip(mock_consultar):
+    mock_consultar.return_value = "VIP"
+
+    resultado = calcular_desconto_por_cpf(100, "12345678900")
+
+    assert resultado == 20.0
+
+
+@patch('calculadora_nuvem.consultar_tipo_cliente_na_api')
+def test_desconto_com_stub_cliente_regular(mock_consultar):
+    mock_consultar.return_value = "REGULAR"
+
+    resultado = calcular_desconto_por_cpf(100, "12345678900")
+
+    assert resultado == 0.0

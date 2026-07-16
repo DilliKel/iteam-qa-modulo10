@@ -1,3 +1,6 @@
 .gabarito/
 gabarito/
 gabarito/respostas.md
+__pycache__/
+*.pyc
+.pytest_cache/
