@@ -93,7 +93,7 @@ Pasta: [`aula04/`](aula04/) — veja o [README da aula](aula04/README.md) para o
 - [`atividade_6_consulta_cep_bruno/`](aula04/atividade_6_consulta_cep_bruno/) — mesma ideia contra a API pública do ViaCEP, incluindo o caso de CEP inexistente (`test_api_cep.py`).
 - [`exercicios-fixacao-dia4.md`](aula04/exercicios-fixacao-dia4.md) — respostas dos exercícios de fixação do Capítulo 4, Dia 4.
 
-Pré-requisito extra para as atividades 5 e 6: `python -m pip install requests` (necessário só para as versões em pytest; a coleção do Bruno em si roda direto no app).
+Pré-requisito extra para as atividades 5 e 6: `python -m pip install requests` (necessário só para as versões em pytest; a coleção do Bruno em si roda direto no app **ou** pelo terminal via Bruno CLI — veja abaixo).
 
 Como executar cada atividade:
 
@@ -105,6 +105,19 @@ cd aula04/atividade_4_ponta_a_ponta && python -m pytest -v
 cd aula04/atividade_5_testes_api_bruno && python -m pytest -v
 cd aula04/atividade_6_consulta_cep_bruno && python -m pytest -v
 ```
+
+### Rodando as coleções do Bruno sem abrir o app (Bruno CLI)
+
+As atividades 5 e 6 foram desenhadas pra usar o app gráfico do [Bruno](https://www.usebruno.com/), mas ele também tem uma versão de linha de comando (`@usebruno/cli`) que roda os mesmos arquivos `.bru`, sem precisar de interface gráfica:
+
+```bash
+npm install -g @usebruno/cli
+
+cd aula04/atividade_5_testes_api_bruno/colecao_bruno && bru run
+cd aula04/atividade_6_consulta_cep_bruno/colecao_viacep && bru run
+```
+
+A saída mostra cada requisição e cada asserção (✓/✕), igual à aba "Assert" do app, mas direto no terminal.
 
 ## Autor
 

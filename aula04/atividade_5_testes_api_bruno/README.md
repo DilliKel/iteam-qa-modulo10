@@ -48,4 +48,32 @@ Usaremos o **Bruno**, uma ferramenta de API moderna, de código aberto e que sal
 4. Execute o teste e garanta que ele fique verde!
 
 ---
+
+## 💻 Alternativa: rodando pelo terminal (Bruno CLI)
+
+Se não quiser instalar o app gráfico, o Bruno também tem uma versão de linha de comando que roda os mesmos arquivos `.bru` da pasta `colecao_bruno/`, incluindo as asserções da aba "Assert".
+
+**Instalação (uma vez só, requer Node.js):**
+
+```bash
+npm install -g @usebruno/cli
+```
+
+**Execução:**
+
+```bash
+cd aula04/atividade_5_testes_api_bruno/colecao_bruno
+bru run
+```
+
+A saída mostra cada requisição, cada asserção (✓ ou ✕) e um resumo final com o total de requisições/asserções que passaram — o mesmo resultado que você veria na interface gráfica, só que direto no terminal.
+
+Há também uma versão equivalente escrita em `pytest` (arquivo [`test_api_posts.py`](test_api_posts.py)), caso prefira validar via Python em vez do formato `.bru`:
+
+```bash
+python -m pip install requests
+python -m pytest -v
+```
+
+---
 *Dica: Travou na sintaxe de como preencher as tabelas de Assert do Bruno? Confira a imagem explicativa na pasta `gabarito/respostas.md`.*

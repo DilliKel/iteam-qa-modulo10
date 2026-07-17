@@ -36,4 +36,34 @@ O nosso contrato de integração exige que:
    * A propriedade `erro` venha com o valor booleano `true`.
 
 ---
+
+## 💻 Alternativa: rodando pelo terminal (Bruno CLI)
+
+Se não quiser instalar o app gráfico, o Bruno também tem uma versão de linha de comando que roda os mesmos arquivos `.bru` da pasta `colecao_viacep/`, incluindo as asserções da aba "Assert".
+
+**Instalação (uma vez só, requer Node.js):**
+
+```bash
+npm install -g @usebruno/cli
+```
+
+**Execução:**
+
+```bash
+cd aula04/atividade_6_consulta_cep_bruno/colecao_viacep
+bru run
+```
+
+A saída mostra cada requisição, cada asserção (✓ ou ✕) e um resumo final com o total de requisições/asserções que passaram — o mesmo resultado que você veria na interface gráfica, só que direto no terminal.
+
+> **Atenção ao testar o CEP inexistente:** a API do ViaCEP devolve a propriedade `erro` como a **string** `"true"`, não como o booleano `true`. Por isso o assert do arquivo `2. Consultar CEP Inexistente.bru` está configurado como `res.body.erro: eq "true"` (com aspas).
+
+Há também uma versão equivalente escrita em `pytest` (arquivo [`test_api_cep.py`](test_api_cep.py)), caso prefira validar via Python em vez do formato `.bru`:
+
+```bash
+python -m pip install requests
+python -m pytest -v
+```
+
+---
 *Dica: Não sabe como escrever a regra na aba Assert? Olhe a pasta `gabarito`!*
