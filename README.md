@@ -11,6 +11,7 @@ Professor: Bruno Ramalho dos Santos
 - [`aula01/`](aula01/) — código e exercícios da Aula 01.
 - [`aula02/`](aula02/) — atividades práticas e exercícios da Aula 02.
 - [`aula03/`](aula03/) — atividades práticas e exercícios da Aula 03.
+- [`aula04/`](aula04/) — atividades práticas e exercícios da Aula 04.
 
 ## Estrutura da apostila
 
@@ -78,6 +79,31 @@ cd aula03/atividade_1_primeiros_testes && python -m pytest -v
 cd aula03/atividade_3_mock_e_stub && python -m pytest -v
 cd aula03/atividade_4_mocks_inteligentes && python -m pytest -v
 cd aula03/atividade_5_desafio_boss_excecoes && python -m pytest -v
+```
+
+## Aula 04 — Laboratório Prático: Integração, Regressão e Validação do Sistema
+
+Pasta: [`aula04/`](aula04/) — veja o [README da aula](aula04/README.md) para o enunciado completo das 6 missões.
+
+- [`atividade_1_integracao_real/`](aula04/atividade_1_integracao_real/) — teste de integração real entre `ServicoPedidos` e `BancoDadosFicticio`, sem Mocks.
+- [`atividade_2_bug_de_regressao/`](aula04/atividade_2_bug_de_regressao/) — simulação de um bug de regressão causado por um refactor incompleto, corrigido nas duas pontas.
+- [`atividade_3_top_down/`](aula04/atividade_3_top_down/) — abordagem Top-Down usando um Stub simples para a camada de banco ainda inexistente.
+- [`atividade_4_ponta_a_ponta/`](aula04/atividade_4_ponta_a_ponta/) — teste E2E com todas as camadas reais (Interface → Controlador → Banco), sem Mocks.
+- [`atividade_5_testes_api_bruno/`](aula04/atividade_5_testes_api_bruno/) — testes de contrato de API reais (JSONPlaceholder), com coleção do [Bruno](https://www.usebruno.com/) e uma versão equivalente em `pytest` + `requests` (`test_api_posts.py`).
+- [`atividade_6_consulta_cep_bruno/`](aula04/atividade_6_consulta_cep_bruno/) — mesma ideia contra a API pública do ViaCEP, incluindo o caso de CEP inexistente (`test_api_cep.py`).
+- [`exercicios-fixacao-dia4.md`](aula04/exercicios-fixacao-dia4.md) — respostas dos exercícios de fixação do Capítulo 4, Dia 4.
+
+Pré-requisito extra para as atividades 5 e 6: `python -m pip install requests` (necessário só para as versões em pytest; a coleção do Bruno em si roda direto no app).
+
+Como executar cada atividade:
+
+```bash
+cd aula04/atividade_1_integracao_real && python -m pytest -v
+cd aula04/atividade_2_bug_de_regressao && python -m pytest -v
+cd aula04/atividade_3_top_down && python -m pytest -v
+cd aula04/atividade_4_ponta_a_ponta && python -m pytest -v
+cd aula04/atividade_5_testes_api_bruno && python -m pytest -v
+cd aula04/atividade_6_consulta_cep_bruno && python -m pytest -v
 ```
 
 ## Autor
