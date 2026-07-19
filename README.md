@@ -130,6 +130,7 @@ Pré-requisito: `python -m pip install pytest selenium` (o Selenium moderno baix
 - [`atividade_2_interacao/`](aula05/atividade_2_interacao/) — digitar numa caixa de busca e submeter um formulário na Wikipédia.
 - [`atividade_3_formularios/`](aula05/atividade_3_formularios/) — automação de login num e-commerce de testes (SauceDemo).
 - [`atividade_4_espera_inteligente/`](aula05/atividade_4_espera_inteligente/) — espera explícita (`WebDriverWait`) para lidar com elementos que carregam de forma assíncrona.
+- [`exercicios-fixacao-dia5.md`](aula05/exercicios-fixacao-dia5.md) — respostas dos exercícios de fixação do Capítulo 5, Dia 5.
 
 Como executar cada atividade:
 
