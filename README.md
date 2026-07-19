@@ -12,6 +12,7 @@ Professor: Bruno Ramalho dos Santos
 - [`aula02/`](aula02/) — atividades práticas e exercícios da Aula 02.
 - [`aula03/`](aula03/) — atividades práticas e exercícios da Aula 03.
 - [`aula04/`](aula04/) — atividades práticas e exercícios da Aula 04.
+- [`aula05/`](aula05/) — atividades práticas da Aula 05.
 
 ## Estrutura da apostila
 
@@ -118,6 +119,47 @@ cd aula04/atividade_6_consulta_cep_bruno/colecao_viacep && bru run
 ```
 
 A saída mostra cada requisição e cada asserção (✓/✕), igual à aba "Assert" do app, mas direto no terminal.
+
+## Aula 05 — Laboratório Prático: Automação de Interface (UI) com Selenium
+
+Pasta: [`aula05/`](aula05/) — veja o [README da aula](aula05/README.md) para o enunciado completo das 4 missões.
+
+Pré-requisito: `python -m pip install pytest selenium` (o Selenium moderno baixa o driver do Chrome automaticamente).
+
+- [`atividade_1_primeiros_passos/`](aula05/atividade_1_primeiros_passos/) — primeiro contato com o Selenium: abrir o navegador e validar o título da aba.
+- [`atividade_2_interacao/`](aula05/atividade_2_interacao/) — digitar numa caixa de busca e submeter um formulário na Wikipédia.
+- [`atividade_3_formularios/`](aula05/atividade_3_formularios/) — automação de login num e-commerce de testes (SauceDemo).
+- [`atividade_4_espera_inteligente/`](aula05/atividade_4_espera_inteligente/) — espera explícita (`WebDriverWait`) para lidar com elementos que carregam de forma assíncrona.
+
+Como executar cada atividade:
+
+```bash
+cd aula05/atividade_1_primeiros_passos && python -m pytest -v
+cd aula05/atividade_2_interacao && python -m pytest -v
+cd aula05/atividade_3_formularios && python -m pytest -v
+cd aula05/atividade_4_espera_inteligente && python -m pytest -v
+```
+
+## Dificuldades encontradas ao longo das 5 aulas
+
+Nem tudo foi direto — algumas dessas dificuldades vieram de detalhes sutis do próprio código do curso, outras da natureza do que estava sendo testado:
+
+- **Nomes de arquivo quebrando a automação silenciosamente.** O arquivo `test_regressao.py.py` (Aula 04, Atividade 2) tinha uma extensão duplicada que impedia o `pytest` de sequer importar o módulo — um erro de coleção que não tem nada a ver com lógica de teste, mas que só aparece quando você tenta rodar.
+- **Ferramentas instaladas, mas fora do alcance do terminal.** O `pytest.exe` foi instalado via `pip install --user` e não caiu no PATH do Windows — rodar só `pytest` falhava silenciosamente ou não fazia nada; foi preciso usar sempre `python -m pytest`.
+- **O contrato real de uma API divergindo do que a documentação/atividade sugeria.** Na Aula 04, o ViaCEP devolve a propriedade `erro` como a **string** `"true"`, não como booleano — um detalhe que só apareceu rodando o teste contra a internet de verdade, tanto em Python quanto no próprio Bruno CLI.
+- **Ambiguidade de regra de negócio.** No exercício de fixação da Aula 03 (desconto por antiguidade), a regra não deixava claro se o desconto se acumulava com o de cliente VIP/PREMIUM ou não — um lembrete de que perguntar antes de codificar evita um "Erro" (no sentido de Erro/Defeito/Falha) se transformar em bug.
+- **Testes de UI "flaky" (instáveis) na Aula 05** — de longe a dificuldade mais sentida na prática: a janela do Chrome abre pequena por padrão, e isso escondia a barra de busca da Wikipédia por causa do layout responsivo (`ElementNotInteractableException`); depois, mesmo com o elemento visível, o código seguia mais rápido que o carregamento da página, fazendo o `assert` pegar o título antigo. É o ciclo "corrige um passo, quebra em outro" — natural quando se está testando várias camadas (rede, DOM, JavaScript) ao mesmo tempo, não só lógica isolada.
+- **Manter o raciocínio numa cadeia longa de dependências.** Nas atividades de integração/E2E (Aula 04) e principalmente nas de UI (Aula 05), um erro pequeno numa etapa anterior (ex: elemento errado, timing errado) se propaga e confunde o diagnóstico do passo seguinte — reforçando por que testes unitários isolados (Aula 03) são tão mais rápidos de depurar.
+
+## Aprendizados das 5 aulas
+
+- **Aula 01 — Fundamentos de qualidade:** a diferença entre QA (processo, preventivo) e QC (produto, reativo); os pilares de qualidade da ISO 9126/25000 (atributos externos como usabilidade e confiabilidade, e internos como manutenibilidade e testabilidade); a curva de custo de correção (quanto mais tarde um bug é achado, mais caro fica); e complexidade algorítmica na prática, comparando um algoritmo O(N²) com um O(N).
+- **Aula 02 — Anatomia do bug:** a separação entre Erro (engano humano), Defeito (o bug no código) e Falha (o que o usuário vê); o conceito de código morto (código inalcançável, geralmente por estar depois de um `return`); as técnicas de Caixa Preta (baseada na especificação) e Caixa Branca (baseada nos caminhos lógicos do código); e teste de regressão (garantir que uma mudança nova não quebra o que já funcionava).
+- **Aula 03 — Automação e isolamento:** o framework `pytest` na prática; o conceito de Isolamento Absoluto (um teste de unidade não pode depender de rede, banco ou serviços externos); os três tipos de Test Doubles — Stub (resposta fixa), Mock (verifica comportamento/chamadas) e Fake (implementação simplificada mas funcional); e a introdução ao BDD (formato Dado/Quando/Então) como forma de reduzir ambiguidade entre negócio e código.
+- **Aula 04 — Integração e validação do sistema:** a diferença entre testar com dependências simuladas (Aula 03) e testar componentes reais conversando entre si; as abordagens de integração Big Bang (arriscada), Top-Down e Bottom-Up; o Teste de Sistema E2E (ponta a ponta, sem nenhum mock); e testes de contrato de API contra serviços reais (JSONPlaceholder, ViaCEP) — e por que validar contra o sistema real às vezes revela surpresas que a documentação não menciona.
+- **Aula 05 — Automação de interface:** o Selenium controlando um navegador de verdade; a diferença de velocidade e estabilidade entre testar lógica isolada e testar uma interface completa (rede + DOM + JavaScript); e o conceito de espera explícita (`WebDriverWait`) como a ferramenta certa pra lidar com a principal causa de instabilidade em testes de UI — o código rodando mais rápido do que a tela consegue carregar.
+
+No fim, os 5 assuntos se encaixam numa progressão só: entender o que é qualidade (Aula 01) → entender como um bug nasce e se manifesta (Aula 02) → isolar e automatizar a menor unidade de código (Aula 03) → validar as peças conversando de verdade (Aula 04) → validar o sistema do jeito que um usuário humano realmente o usa (Aula 05). Cada camada é mais lenta e mais frágil que a anterior — e é exatamente por isso que a Pirâmide de Testes recomenda ter muitos testes unitários na base e poucos testes de UI no topo.
 
 ## Autor
 
